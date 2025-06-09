@@ -1,36 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [topic, setTopic] = useState("");
+  const [result, setResult] = useState("");
+
+  // This will be replaced with a real API call later!
+  const handleGenerate = () => {
+    setResult(`(Pretend) Generating learning path for: ${topic}`);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <h1 className="text-3xl font-bold text-blue-600">Hello, LearnBuddy.AI!</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 to-slate-700">
+      <h1 className="text-4xl font-bold text-white mb-6">LearnBuddy.AI</h1>
+      <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center w-full max-w-md">
+        <input
+          className="w-full p-2 mb-4 rounded border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          type="text"
+          placeholder="Enter a topic (e.g., REST APIs)"
+          value={topic}
+          onChange={(e) => setTopic(e.target.value)}
+        />
+        <button
+          onClick={handleGenerate}
+          className="px-6 py-2 rounded bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+        >
+          Generate Learning Path
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        {result && (
+          <div className="mt-6 p-4 bg-blue-50 rounded w-full text-blue-900 text-center">
+            {result}
+          </div>
+        )}
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
-
-export default App
