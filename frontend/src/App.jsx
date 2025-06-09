@@ -4,7 +4,6 @@ export default function App() {
   const [topic, setTopic] = useState("");
   const [result, setResult] = useState("");
 
-  // This will be replaced with a real API call later!
   const handleGenerate = async () => {
     setResult("Loading...");
     try {
@@ -22,11 +21,25 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 to-slate-700">
-      <h1 className="text-4xl font-bold text-white mb-6">LearnBuddy.AI</h1>
-      <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center w-full max-w-md">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-blue-800 via-blue-900 to-gray-900">
+      {/* Hero Section */}
+      <div className="flex flex-col items-center gap-3 mb-10">
+        <div className="w-16 h-16 bg-white/10 rounded-3xl flex items-center justify-center shadow-lg">
+          <span className="text-5xl">📚</span>
+        </div>
+        <h1 className="text-5xl font-extrabold text-white drop-shadow mb-2 text-center">
+          LearnBuddy.<span className="text-blue-300">AI</span>
+        </h1>
+        <p className="text-lg text-blue-100 text-center max-w-xl">
+          Your AI-powered learning companion. <br />
+          Get a personalized study plan and quiz for <span className="font-bold text-blue-200">any topic!</span>
+        </p>
+      </div>
+
+      {/* Card */}
+      <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-xl p-8 w-full max-w-lg flex flex-col items-center">
         <input
-          className="w-full p-2 mb-4 rounded border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full p-3 mb-4 rounded-xl border border-blue-200 bg-white/80 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
           type="text"
           placeholder="Enter a topic (e.g., REST APIs)"
           value={topic}
@@ -34,16 +47,21 @@ export default function App() {
         />
         <button
           onClick={handleGenerate}
-          className="px-6 py-2 rounded bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+          className="w-full px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-400 text-white font-semibold shadow hover:scale-105 transition text-lg"
         >
-          Generate Learning Path
+          🚀 Generate Learning Path
         </button>
         {result && (
-          <div className="mt-6 p-4 bg-blue-50 rounded w-full text-blue-900 text-center">
+          <div className="mt-6 bg-blue-50/80 rounded-xl p-4 w-full text-blue-900 shadow-inner animate-fade-in">
             {result}
           </div>
         )}
       </div>
+
+      {/* Footer */}
+      <footer className="mt-16 text-sm text-blue-200 opacity-60 text-center">
+        Built with <span className="text-blue-400 font-bold">React + Tailwind CSS</span> | © {new Date().getFullYear()} LearnBuddy.AI
+      </footer>
     </div>
   );
 }
