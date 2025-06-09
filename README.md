@@ -63,7 +63,7 @@ You can create multiple chats—each saved separately—making it easy to keep y
 - [python-dotenv](https://pypi.org/project/python-dotenv/) (env vars)
 - [requests](https://docs.python-requests.org/en/master/) (HTTP)
 
-**Database & Auth (optional/coming soon):**
+**Database & Auth (coming soon):**
 - [Supabase](https://supabase.com/) (PostgreSQL + Auth)
 
 **Deployment:**
