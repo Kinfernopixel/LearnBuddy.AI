@@ -10,6 +10,8 @@ def generate_learning_path(topic):
     - Module title
     - 1-2 sentence summary
 
+    Please format your response as bullet points, each on its own line, not as a paragraph.
+    
     Format the output as numbered steps, like:
     1. [Module Title]: [Summary]
     2. ...
