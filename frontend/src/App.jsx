@@ -6,12 +6,16 @@ export default function App() {
 
   // This will be replaced with a real API call later!
   const handleGenerate = async () => {
-  setResult("Loading...");
+    setResult("Loading...");
     try {
-      const res = await fetch("http://127.0.0.1:5000/api/hello");
+      const res = await fetch("http://127.0.0.1:5000/api/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ topic }),
+      });
       if (!res.ok) throw new Error("Network response was not ok");
       const data = await res.json();
-      setResult(data.message);
+      setResult(data.learning_path);
     } catch (error) {
       setResult("Error: " + error.message);
     }
