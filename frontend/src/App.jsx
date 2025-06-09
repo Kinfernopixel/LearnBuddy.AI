@@ -5,8 +5,16 @@ export default function App() {
   const [result, setResult] = useState("");
 
   // This will be replaced with a real API call later!
-  const handleGenerate = () => {
-    setResult(`(Pretend) Generating learning path for: ${topic}`);
+  const handleGenerate = async () => {
+  setResult("Loading...");
+    try {
+      const res = await fetch("http://127.0.0.1:5000/api/hello");
+      if (!res.ok) throw new Error("Network response was not ok");
+      const data = await res.json();
+      setResult(data.message);
+    } catch (error) {
+      setResult("Error: " + error.message);
+    }
   };
 
   return (
