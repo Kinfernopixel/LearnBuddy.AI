@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "./assets/learnbuddy.png";
+import logo from "./assets/learnBuddy.png";
 
 function Bulletify({ text }) {
     // Split by numbered list (matches "1." at line start), fallback to newline if no matches
